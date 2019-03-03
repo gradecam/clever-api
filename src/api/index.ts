@@ -16,7 +16,7 @@ export function createClient(opts: Config): Client {
   });
   instance.interceptors.response.use(
     async (res) => {
-      console.log(res.data);
+      // console.log(res.data);
       if (res.data && res.data.data) {
         if (Array.isArray(res.data.data)) {
           res.data.data = res.data.data.map((obj: any) => obj.data || obj);
@@ -25,10 +25,6 @@ export function createClient(opts: Config): Client {
         }
       }
       return res;
-    },
-    (err: AxiosError) => {
-      // retry on rate limited
-      console.error(err);
     })
   ;
   const client: Client = {
@@ -40,8 +36,7 @@ export function createClient(opts: Config): Client {
     },
     request: <T = any>(config: RequestConfig): Promise<T> => {
       const cfg: AxiosRequestConfig = Object.assign({}, config);
-      // cfg.transformResponse = transformResponse;
-      console.log({cfg});
+      // console.log({cfg});
       return instance.request(cfg).then((result) => result.data);
     },
     getProfile: (): Promise<schema.Profile> => {
