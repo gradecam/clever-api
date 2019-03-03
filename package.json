@@ -1,0 +1,61 @@
+{
+  "name": "@gradecam/clever-api",
+  "version": "0.0.0",
+  "description": "Module for interacting with the Clever APIs.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "rimraf dist && tsc -p .",
+    "prepublishOnly": "npm run build",
+    "test": "jest"
+  },
+  "keywords": [
+    "Clever"
+  ],
+  "author": "GradeCam LLC",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^24.0.9",
+    "@types/node": "^11.9.5",
+    "@types/qs": "^6.5.1",
+    "jest": "^24.1.0",
+    "jest-junit": "^6.3.0",
+    "ts-jest": "^24.0.0",
+    "ts-node": "^8.0.2",
+    "tslib": "^1.9.3",
+    "typescript": "^3.3.3333"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "qs": "^6.6.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "dist/",
+    "LICENSE",
+    "README.md",
+    "package.json"
+  ],
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "testRegex": "(test.*)(^.?|\\.[^d]|[^.]d|[^.][^d])\\.ts$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gradecam/clever-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gradecam/clever-api/issues"
+  }
+}
