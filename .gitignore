@@ -3,3 +3,4 @@ local/
 ._*
 dist
 node_modules
+.repl_history
