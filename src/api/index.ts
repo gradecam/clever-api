@@ -54,7 +54,7 @@ export function createClient(opts: Config): Client {
       return client.request({url, method: 'GET'});
     },
     request: <T = any>(config: RequestConfig): Promise<T> => {
-      const cfg: AxiosRequestConfig = Object.assign({}, config);
+      const cfg: AxiosRequestConfig = Object.assign({method: 'GET'}, config) as any;
       // console.log({cfg});
       return instance.request(cfg).then((result) => result.data);
     },
