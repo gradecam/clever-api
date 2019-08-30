@@ -44,6 +44,7 @@ export function createClever(clientId: string, clientSecret: string = ''): Cleve
     },
     listAppTokens: (params: ListTokensParams = {}) => {
       if (!params.owner_type) { params.owner_type = 'district'; }
+      if (!params.district) { delete params.district; }
       return axios({method: 'GET', auth, url: tokensUrl, params})
         .then((resp: AxiosResponse<{data: ApplicationToken[]}>) => resp.data.data)
       ;
